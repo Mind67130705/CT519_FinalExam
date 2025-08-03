@@ -4,6 +4,7 @@ include 'db.php';
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
     <title>My Research</title>
 </head>
 <body>
@@ -22,6 +23,13 @@ include 'db.php';
     }
     ?>
     </ul>
+
+    <!-- ปุ่มย้อนกลับไปหน้าหลัก -->
+    <div class="back-button">
+        <a href="index.php">
+            <button>ย้อนกลับไปหน้าหลัก</button>
+        </a>
+    </div>
 </body>
 </html>
 

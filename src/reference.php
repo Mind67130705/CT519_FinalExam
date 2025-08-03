@@ -39,6 +39,13 @@ if (!$result) {
 <?php endwhile; ?>
 </table>
 
+    <!-- ปุ่มย้อนกลับไปหน้าหลัก -->
+    <div class="back-button">
+        <a href="index.php">
+            <button>ย้อนกลับไปหน้าหลัก</button>
+        </a>
+    </div>
+
 </body>
 </html>
 
