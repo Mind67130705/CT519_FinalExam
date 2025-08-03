@@ -3,10 +3,14 @@ include 'db.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $title = $_POST['title'];
-    $pdf_url = $_POST['pdf_url'];
+    $pdf_url = $_POST['pdf_link'];
 
-    // เตรียมคำสั่ง SQL แบบป้องกัน SQL injection
-    $stmt = $conn->prepare("INSERT INTO references (title, pdf_url) VALUES (?, ?)");
+    // แก้ชื่อ table ให้ตรงกับที่สร้างใน MySQL
+    $stmt = $conn->prepare("INSERT INTO research_references (title, pdf_url) VALUES (?, ?)");
+    if (!$stmt) {
+        die("❌ เตรียม statement ไม่สำเร็จ: " . $conn->error);
+    }
+
     $stmt->bind_param("ss", $title, $pdf_url);
 
     if ($stmt->execute()) {
@@ -21,3 +25,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "❗ ไม่สามารถเข้าถึงหน้านี้โดยตรง";
 }
 ?>
+

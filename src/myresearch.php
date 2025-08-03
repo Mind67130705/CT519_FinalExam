@@ -12,7 +12,7 @@ include 'db.php';
     <h3>รายการอ้างอิง (IEEE)</h3>
     <ul>
     <?php
-    $result = $conn->query("SELECT * FROM references");
+    $result = $conn->query("SELECT * FROM research_references");
     if ($result) {
         while ($row = $result->fetch_assoc()) {
             echo "<li>{$row['title']} - <a href='{$row['pdf_url']}' target='_blank'>PDF</a></li>";
