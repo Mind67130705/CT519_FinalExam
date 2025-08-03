@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    container_name: finalexam_web
+    volumes:
+      - ./src:/var/www/html
+    ports:
+      - "443:443"
+      - "80:80"
+    depends_on:
+      - db
+
+  db:
+    image: mysql:5.7
+    container_name: finalexam_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: finalexam
+      MYSQL_USER: student
+      MYSQL_PASSWORD: studentpass
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./db:/docker-entrypoint-initdb.d 
+
+volumes:
+  db_data:
